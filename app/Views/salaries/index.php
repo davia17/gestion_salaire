@@ -9,7 +9,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>Gestion des employés</title>
+    <title>Gestion de paie</title>
 
     <style>
         * {
@@ -72,7 +72,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: auto;
 
             background-color: white;
@@ -152,6 +152,10 @@
             padding: 30px;
             color: #777;
         }
+
+        .net {
+            font-weight: bold;
+        }
     </style>
 
 </head>
@@ -169,18 +173,18 @@
                 <div class="header">
 
                     <h1>
-                        Gestion des employés
+                        Gestion de paie
                     </h1>
 
                     <a
-                        href="<?= site_url('employees/new') ?>"
+                        href="<?= site_url('salaries/new') ?>"
                         class="btn btn-add">
-                        + Ajouter un employé
+                        + Ajouter un salaire
                     </a>
 
                 </div>
 
-                <?php if (!empty($employees)): ?>
+                <?php if (!empty($salaries)): ?>
 
                     <table>
 
@@ -188,10 +192,13 @@
 
                             <tr>
                                 <th>ID</th>
-                                <th>Nom</th>
-                                <th>Prénom</th>
-                                <th>Poste</th>
+                                <th>Employé</th>
+                                <th>Mois</th>
+                                <th>Année</th>
                                 <th>Salaire de base</th>
+                                <th>Prime</th>
+                                <th>Retenue</th>
+                                <th>Salaire net</th>
                                 <th>Actions</th>
                             </tr>
 
@@ -199,29 +206,57 @@
 
                         <tbody>
 
-                            <?php foreach ($employees as $employee): ?>
+                            <?php foreach ($salaries as $salary): ?>
 
                                 <tr>
 
                                     <td>
-                                        <?= esc($employee['id']) ?>
+                                        <?= esc($salary['id']) ?>
                                     </td>
 
                                     <td>
-                                        <?= esc($employee['nom']) ?>
+                                        <?= esc($salary['prenom']) ?>
+                                        <?= esc($salary['nom']) ?>
                                     </td>
 
                                     <td>
-                                        <?= esc($employee['prenom']) ?>
+                                        <?= esc($salary['mois']) ?>
                                     </td>
 
                                     <td>
-                                        <?= esc($employee['poste']) ?>
+                                        <?= esc($salary['annee']) ?>
                                     </td>
 
                                     <td>
                                         <?= number_format(
-                                            $employee['salaire_base'],
+                                            $salary['salaire_base'],
+                                            2,
+                                            ',',
+                                            ' '
+                                        ) ?> Ar
+                                    </td>
+
+                                    <td>
+                                        <?= number_format(
+                                            $salary['prime'],
+                                            2,
+                                            ',',
+                                            ' '
+                                        ) ?> Ar
+                                    </td>
+
+                                    <td>
+                                        <?= number_format(
+                                            $salary['retenue'],
+                                            2,
+                                            ',',
+                                            ' '
+                                        ) ?> Ar
+                                    </td>
+
+                                    <td class="net">
+                                        <?= number_format(
+                                            $salary['salaire_net'],
                                             2,
                                             ',',
                                             ' '
@@ -233,15 +268,15 @@
                                         <div class="actions">
 
                                             <a
-                                                href="<?= site_url('employees/edit/' . $employee['id']) ?>"
+                                                href="<?= site_url('salaries/edit/' . $salary['id']) ?>"
                                                 class="btn btn-edit">
                                                 Modifier
                                             </a>
 
                                             <a
-                                                href="<?= site_url('employees/delete/' . $employee['id']) ?>"
+                                                href="<?= site_url('salaries/delete/' . $salary['id']) ?>"
                                                 class="btn btn-delete"
-                                                onclick="return confirm('Voulez-vous vraiment supprimer cet employé ?')">
+                                                onclick="return confirm('Voulez-vous vraiment supprimer ce salaire ?')">
                                                 Supprimer
                                             </a>
 
@@ -260,7 +295,7 @@
                 <?php else: ?>
 
                     <div class="empty">
-                        Aucun employé enregistré.
+                        Aucun salaire enregistré.
                     </div>
 
                 <?php endif; ?>
