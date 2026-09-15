@@ -3,20 +3,21 @@
 use CodeIgniter\Router\RouteCollection;
 
 /** @var RouteCollection $routes */
+
 $routes->get('/', 'Home::index');
 
-// CRUD Employés
-$routes->get('/employees', 'EmployeeController::index');
-$routes->get('/employees/new', 'EmployeeController::new');
-$routes->post('/employees/create', 'EmployeeController::create');
-$routes->get('/employees/edit/(:num)', 'EmployeeController::edit/$1');
-$routes->post('/employees/update/(:num)', 'EmployeeController::update/$1');
-$routes->get('/employees/delete/(:num)', 'EmployeeController::delete/$1');
+// CRUD EMPLOYÉS
+$routes->get('/employes', 'EmployeController::index');
+$routes->get('/employes/new', 'EmployeController::new');
+$routes->post('/employes/create', 'EmployeController::create');
+$routes->get('/employes/edit/(:segment)', 'EmployeController::edit/$1');
+$routes->post('/employes/update/(:segment)', 'EmployeController::update/$1');
+$routes->get('/employes/delete/(:segment)', 'EmployeController::delete/$1');
 
-// CRUD Salaires
-$routes->get('/salaries', 'SalaryController::index');
-$routes->get('/salaries/new', 'SalaryController::new');
-$routes->post('/salaries/create', 'SalaryController::create');
-$routes->get('/salaries/edit/(:num)', 'SalaryController::edit/$1');
-$routes->post('/salaries/update/(:num)', 'SalaryController::update/$1');
-$routes->get('/salaries/delete/(:num)', 'SalaryController::delete/$1');
+// CRUD POSTES
+$routes->get('/postes', 'PosteController::index');
+$routes->get('/postes/new', 'PosteController::new');
+$routes->post('/postes/create', 'PosteController::create');
+$routes->get('/postes/edit/(:num)', 'PosteController::edit/$1');
+$routes->post('/postes/update/(:num)', 'PosteController::update/$1');
+$routes->get('/postes/delete/(:num)', 'PosteController::delete/$1');
