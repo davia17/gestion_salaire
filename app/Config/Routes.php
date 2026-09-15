@@ -30,3 +30,10 @@ $routes->get('/avances/edit/(:num)', 'AvanceController::edit/$1');
 $routes->post('/avances/update/(:num)', 'AvanceController::update/$1');
 $routes->get('/avances/delete/(:num)', 'AvanceController::delete/$1');
 
+//CRUD Primes
+$routes->get('/primes', 'PrimeController::index');
+$routes->get('/primes/new', 'PrimeController::new');
+$routes->post('/primes/create', 'PrimeController::create');
+$routes->get('/primes/edit/(:num)', 'PrimeController::edit/$1');
+$routes->post('/primes/update/(:num)', 'PrimeController::update/$1');
+$routes->get('/primes/delete/(:num)', 'PrimeController::delete/$1');
