@@ -37,3 +37,12 @@ $routes->post('/primes/create', 'PrimeController::create');
 $routes->get('/primes/edit/(:num)', 'PrimeController::edit/$1');
 $routes->post('/primes/update/(:num)', 'PrimeController::update/$1');
 $routes->get('/primes/delete/(:num)', 'PrimeController::delete/$1');
+
+//CRUD Abscence et congé
+$routes->get('/absences', 'AbsenceController::index');
+$routes->get('/absences/new', 'AbsenceController::new');
+$routes->post('/absences/create', 'AbsenceController::create');
+$routes->get('/absences/edit/(:num)', 'AbsenceController::edit/$1');
+$routes->post('/absences/update/(:num)', 'AbsenceController::update/$1');
+$routes->get('/absences/delete/(:num)', 'AbsenceController::delete/$1');
+
