@@ -21,3 +21,12 @@ $routes->post('/postes/create', 'PosteController::create');
 $routes->get('/postes/edit/(:num)', 'PosteController::edit/$1');
 $routes->post('/postes/update/(:num)', 'PosteController::update/$1');
 $routes->get('/postes/delete/(:num)', 'PosteController::delete/$1');
+
+//CRUD AVANCES
+$routes->get('/avances', 'AvanceController::index');
+$routes->get('/avances/new', 'AvanceController::new');
+$routes->post('/avances/create', 'AvanceController::create');
+$routes->get('/avances/edit/(:num)', 'AvanceController::edit/$1');
+$routes->post('/avances/update/(:num)', 'AvanceController::update/$1');
+$routes->get('/avances/delete/(:num)', 'AvanceController::delete/$1');
+
