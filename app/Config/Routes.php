@@ -46,3 +46,10 @@ $routes->get('/absences/edit/(:num)', 'AbsenceController::edit/$1');
 $routes->post('/absences/update/(:num)', 'AbsenceController::update/$1');
 $routes->get('/absences/delete/(:num)', 'AbsenceController::delete/$1');
 
+//CRUD Paie
+$routes->get('/paies', 'PaieController::index');
+$routes->get('/paies/new', 'PaieController::new');
+$routes->post('/paies/create', 'PaieController::create');
+$routes->get('/paies/edit/(:num)', 'PaieController::edit/$1');
+$routes->post('/paies/update/(:num)', 'PaieController::update/$1');
+$routes->get('/paies/delete/(:num)', 'PaieController::delete/$1');
